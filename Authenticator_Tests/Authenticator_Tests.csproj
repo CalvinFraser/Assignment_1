@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFFC4456-B1E9-440F-A91E-241492D52DA1}</ProjectGuid>
+    <ProjectGuid>{44D8A39A-33B6-4E9D-96AB-2D033860E192}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Authenticator</RootNamespace>
-    <AssemblyName>Authenticator</AssemblyName>
+    <RootNamespace>Authenticator_Tests</RootNamespace>
+    <AssemblyName>Authenticator_Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,8 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authenticator.cs" />
-    <Compile Include="AuthenticatorServer.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

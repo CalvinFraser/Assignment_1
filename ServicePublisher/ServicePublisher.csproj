@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFFC4456-B1E9-440F-A91E-241492D52DA1}</ProjectGuid>
+    <ProjectGuid>{1F0FE092-D5A9-453F-B943-2A8DACFA4A28}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Authenticator</RootNamespace>
-    <AssemblyName>Authenticator</AssemblyName>
+    <RootNamespace>ServicePublisher</RootNamespace>
+    <AssemblyName>ServicePublisher</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,18 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authenticator.cs" />
-    <Compile Include="AuthenticatorServer.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AuthenticationInterface\AuthenticationInterface.csproj">
-      <Project>{7c3f17ea-e131-4d5e-b25e-08dd6813f378}</Project>
-      <Name>AuthenticationInterface</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
