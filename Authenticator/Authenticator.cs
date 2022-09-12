@@ -74,11 +74,11 @@ namespace Authenticator
         {
             if (checkToken(token))
             {
-                return "Token validated";
+                return "valid";
             }
             else
             {
-                return "Token invalid";
+                return "invalid";
             }
         }
 
