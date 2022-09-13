@@ -14,42 +14,57 @@ namespace ServiceProvider.Controllers
     {
         private bool validate(int token)
         {
-            ChannelFactory<IAuthentication> channelFactory;
-            NetTcpBinding tcp = new NetTcpBinding();
-            IAuthentication channel;
-            string URL = "net.tcp://localhost:8100/Authenticator";
-
-            channelFactory = new ChannelFactory<IAuthentication>(tcp, URL);
-            channel = channelFactory.CreateChannel();
-
-            string valid = channel.Valdiate(token);
-            if (string.Compare(valid, "valid", true) == 0)
+            try
             {
-                return true;
+                ChannelFactory<IAuthentication> channelFactory;
+                NetTcpBinding tcp = new NetTcpBinding();
+                IAuthentication channel;
+                string URL = "net.tcp://localhost:8100/Authenticator";
+
+                channelFactory = new ChannelFactory<IAuthentication>(tcp, URL);
+                channel = channelFactory.CreateChannel();
+
+                string valid = channel.Valdiate(token);
+                if (string.Compare(valid, "valid", true) == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch(Exception e)
             {
-                return false;
+                throw e; 
             }
 
         }
-        public ServiceProviderOutput Get(int a, int b, int token)
+        public CommonOutput Get(int a, int b, int token)
         {
-            ServiceProviderOutput SPO = new ServiceProviderOutput();
+            CommonOutput SPO = new CommonOutput();
 
-
-            if (validate(token))
+            try
             {
-                SPO.Status = "Allowed";
-                SPO.Reason = "Authorised";
-                SPO.result = a * b;
+                if (validate(token))
+                {
+                    SPO.Status = "Allowed";
+                    SPO.Reason = "Authorised";
+                    SPO.Result = (a * b).ToString();
+                }
+                else
+                {
+                    SPO.Status = "Denied";
+                    SPO.Reason = "Unauthorised";
+                    SPO.Result = "Null";
+
+                }
             }
-            else
+            catch(Exception e)
             {
-                SPO.Status = "Denied";
-                SPO.Reason = "Unauthorised";
-                SPO.result = 0;
-
+                SPO.Status = "Unknown error occured";
+                SPO.Reason = "Please check authentication server";
+                SPO.Result = "Null"; 
             }
 
             return SPO;
